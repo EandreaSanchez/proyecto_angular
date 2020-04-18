@@ -2,13 +2,13 @@
 <html>
   <head>
     <meta charset="UTF-8">
-<title>Erika</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js
-"></script>
-<script>
+	<title>Erika</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js
+	"></script>
+    <script>
 	var module = angular.module('myapp', []);
 	
 	module.factory('usuarioDataService', function ($http) {
@@ -82,152 +82,139 @@
 
 			$scope.doShow = true;
 		}
-	}
-})
-</script>
-<style>
-  .mySlides {display:none;}
-  
-  body, input, select {
-		font: normal 1em Helvetica;
-	}
-
-	input:not([type='checkbox']), select {
-		width: 350px;
-	}
-
-	input, select {
-		padding: 5px;
-		margin-top: 12px;
-	}
-
-	input[name='email'].ng-dirty.ng-invalid-email {
-		color: rgb(0, 38, 255);
-	}
+	    }
+    })
+    </script>
+    <style>
+	.mySlides {display:none;}
 	
-	input[name='email'].ng-dirty.ng-valid-email {
-		color: green;
-	}
-	
-	form span, .error {
-		color: rgb(0, 38, 255);
-	}
-	.w3-myfont {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-}
-  </style>
+	body, input, select {
+			font: normal 1em Helvetica;
+		}
+
+		input:not([type='checkbox']), select {
+			width: 350px;
+		}
+
+		input, select {
+			padding: 5px;
+			margin-top: 12px;
+		}
+
+		input[name='email'].ng-dirty.ng-invalid-email {
+			color: rgb(0, 38, 255);
+		}
+		
+		input[name='email'].ng-dirty.ng-valid-email {
+			color: green;
+		}
+		
+		form span, .error {
+			color: rgb(0, 38, 255);
+		}
+		.w3-myfont {
+		font-family: "Comic Sans MS", cursive, sans-serif;
+		}
+    </style>
 </head>
 <body ng-app="myapp">
 <div class="w3-container w3-purple">
-<div align="left"><img src="images/Logo.jpg" class=" w3-hover-opacity" style="width:10%"></div>
-  
+  <div align="left"><img src="images/Logo.jpg" class=" w3-hover-opacity" style="width:10%"></div>
 </div>
-
-
 <div class="w3-bar w3-black">
-  <a href="#" class="w3-bar-item w3-button w3-myfont">Inicio</a>
-  <a href="#" class="w3-bar-item w3-button w3-myfont">Quienes somos</a>
-  <a href="#" class="w3-bar-item w3-button w3-myfont">Servicios</a>
-  <a href="#" class="w3-bar-item w3-button w3-myfont">Contactenos</a>
+  <a href="index.html" class="w3-bar-item w3-button w3-myfont">Inicio</a>
+  <a href="Quienes somos.html" class="w3-bar-item w3-button w3-myfont">Quienes somos</a>
+  <a href="Servicios.html" class="w3-bar-item w3-button w3-myfont">Servicios</a>
+  <a href="Contactenos.html" class="w3-bar-item w3-button w3-myfont">Contactenos</a>
 </div>
 <div class="w3-container w3-pale-blue">
-<div class="w3-content w3-display-container">
-
-  <div class="w3-display-container mySlides">
-    <img src="images/image1.jpg" class="w3-border w3-padding w3-opacity w3-hover-opacity-off" width="980" height="400">
-    <div class="w3-display-bottomleft w3-small w3-container w3-padding-16 w3-black">
-      DOGS
-    </div>
-  </div>
-  
-  <div class="w3-display-container mySlides">
-    <img src="images/image4.jpg" class="w3-border w3-padding w3-opacity w3-hover-opacity-off" width="980" height="400">
-    <div class="w3-display-bottomright w3-small w3-container w3-padding-16 w3-black">
-      Vernes
-    </div>
-  </div>
-  
-  <div class="w3-display-container mySlides">
-    <img src="images/image3.jpg"  class="w3-border w3-padding w3-opacity w3-hover-opacity-off" width="980" height="400">
-    <div class="w3-display-topleft w3-small w3-container w3-padding-16 w3-black">
-      Husky
-    </div>
-  </div>
-  <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
-  
-  </div>
-
-<br>
-<br>
-<div class="w3-panel w3-light-blue">
+   <div class="w3-content w3-display-container">
+       <div class="w3-display-container mySlides">
+           <img src="images/image1.jpg" class="w3-border w3-padding w3-opacity w3-hover-opacity-off" width="980" height="400">
+           <div class="w3-display-bottomleft w3-small w3-container w3-padding-16 w3-black">
+             DOGS
+           </div>
+       </div>
+       <div class="w3-display-container mySlides">
+            <img src="images/image4.jpg" class="w3-border w3-padding w3-opacity w3-hover-opacity-off" width="980" height="400">
+            <div class="w3-display-bottomright w3-small w3-container w3-padding-16 w3-black">
+              Vernes
+           </div>  
+       </div>
+       <div class="w3-display-container mySlides">
+		   <img src="images/image3.jpg"  class="w3-border w3-padding w3-opacity w3-hover-opacity-off" width="980" height="400">
+		   <div class="w3-display-topleft w3-small w3-container w3-padding-16 w3-black">
+			  Husky
+		   </div>
+       </div>
+         <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+         <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+   </div>
+    <br>
+	<br>
+   <div class="w3-panel w3-light-blue">
 	<h2 class="w3-opacity w3-center w3-myfont">Pets</h2>
-  </div>
-  <div class="w3-row-padding">
-      <div class="w3-col s4">
-		<img src="images/image5.jpg" class="w3-border w3-padding w3-hover-sepia" width="400" height="300">
-	  </div>
-      <div class="w3-col s4">
-        <img src="images/image9.jpg" class="w3-border w3-padding w3-hover-sepia" width="400" height="300">
-      </div>
-      <div class="w3-col s4">
-        <img src="images/image10.jpg" class="w3-border w3-padding w3-hover-sepia"  width="400" height="300">
-      </div>
-    </div>
-   <div>
-	<div ng-controller="miControlador">
-     
-	  <div class="w3-row-padding">
-	    <div class="w3-col s4 w3-center">
-			<div class="w3-panel w3-light-blue ">
-				<h2 class="w3-opacity w3-center w3-myfont">Newsletter</h2>
-			</div>
-			<div class="w3-container  w3-border">
-			  <br>
-			  <br>
-			  <br>
-			  <br>
-			<form name="formularioRegistro" ng-submit="validar()" novalidate>
-				
-				<div ng-show="mostrarMensajeExito">
-					Gracias por registrarte!
-				</div>
-				
-				<div class="error" ng-show="mostrarMensajeError">				
-					{{errorPromise}}
-				</div>
-
-				<input type="text" placeholder="Nombre" name="nombre" ng-model="persona.nombre" required/>
-				<span ng-show="nombreInvalid"><br/>Introduzca un nombre</span>
-				<br/>
-		
-				<input type="email" placeholder="Email" name="email" ng-model="persona.email" required/>
-				<span ng-show="emailInvalid"><br/>Introduzca un email válido</span>
-				<br/>
-				
-				<input type="submit" value="Registrarme"/>
-
-				<span ng-show="enProceso" style="padding-left:10px;">
-					<p>Cargando...</p>
-				</span>
-			</form>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			
+   </div>
+   <div class="w3-row-padding">
+        <div class="w3-col s4">
+		  <img src="images/image5.jpg" class="w3-border w3-padding w3-hover-sepia" width="400" height="300">
 	    </div>
-		</div>
-        <br>
-		<div class="w3-col s8">
-			<img src="images/image12.jpg" class="w3-border w3-padding" width="850" height="360">
-		</div>
+        <div class="w3-col s4">
+          <img src="images/image9.jpg" class="w3-border w3-padding w3-hover-sepia" width="400" height="300">
+        </div>
+        <div class="w3-col s4">
+          <img src="images/image10.jpg" class="w3-border w3-padding w3-hover-sepia"  width="400" height="300">
+        </div>
+    </div>
+   	<div ng-controller="miControlador">
+       <div class="w3-row-padding">
+	        <div class="w3-col s4 w3-center">
+			    <div class="w3-panel w3-light-blue ">
+				  <h2 class="w3-opacity w3-center w3-myfont">Newsletter</h2>
+			    </div>
+			<div class="w3-container  w3-border">
+					<br>
+					<br>
+					<br>
+					<br>
+			    <form name="formularioRegistro" ng-submit="validar()" novalidate>
+				
+					<div ng-show="mostrarMensajeExito">
+						Gracias por registrarte!
+					</div>
+					
+					<div class="error" ng-show="mostrarMensajeError">				
+						{{errorPromise}}
+					</div>
 
-	  </div>
+					<input type="text" placeholder="Nombre" name="nombre" ng-model="persona.nombre" required/>
+					<span ng-show="nombreInvalid"><br/>Introduzca un nombre</span>
+					<br/>
+			
+					<input type="email" placeholder="Email" name="email" ng-model="persona.email" required/>
+					<span ng-show="emailInvalid"><br/>Introduzca un email válido</span>
+					<br/>
+					
+					<input type="submit" value="Registrarme"/>
+
+					<span ng-show="enProceso" style="padding-left:10px;">
+						<p>Cargando...</p>
+					</span>
+			    </form>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+		    </div>
+	        </div>
+              <br>
+		   <div class="w3-col s8">
+			<img src="images/image12.jpg" class="w3-border w3-padding" width="850" height="360">
+		   </div>
+       </div>
 	</div>
-  </div>
-  <br>
+     <br>
 </div>
 <div class="w3-container w3-purple">
   <my-app>loading</my-app>
@@ -252,5 +239,5 @@
     x[slideIndex-1].style.display = "block";  
   }
 </script>
-  </body>
+</body>
 </html>
