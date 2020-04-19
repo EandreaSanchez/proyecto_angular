@@ -2,28 +2,199 @@
 <html>
   <head>
     <meta charset="UTF-8">
-	<title>Erika</title>
+	<title>Servicios</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script>
+		var module = angular.module('myapp', []);
+		
+		module.factory('usuarioDataService', function ($http) {
+			var usuarioData = {};
+		
+			usuarioData.registrar = function (datosUsuario) {
+				var promise = $http({method: 'POST', url: 'registro.php', data: datosUsuario});
+				return promise;
+			}
+		
+		return usuarioData;
+	
+		})
+		
+		module.controller("miControlador", function ($scope, usuarioDataService) {
+			$scope.persona = {};
+			$scope.persona.newsletter = true;
+			$scope.persona.canales = [
+				{ value: "television", label: "Television" },
+				{ value: "radio", label: "Radio" },
+				{ value: "redes-sociales", label: "Redes Sociales"},
+				{ value: "otro", label: "Otros"}
+			];
+			
+			$scope.validar = function () {
+				$scope.nombreInvalid = false;
+				$scope.apellidoInvalid = false;
+				$scope.emailInvalid = false;
+				$scope.medioInvalid = false;
+				$scope.mostrarMensajeExito = false;
+				$scope.mostrarMensajeError = false;
+				
+				if (!$scope.formularioRegistro.nombre.$valid) {
+				$scope.nombreInvalid = true;
+				}
+				if (!$scope.formularioRegistro.apellido.$valid) {
+				$scope.apellidoInvalid = true;
+				}
+				if (!$scope.formularioRegistro.email.$valid) {
+				$scope.emailInvalid = true;
+				}
+				if (!$scope.formularioRegistro.medio.$valid) {
+				$scope.medioInvalid = true;
+				}
+	
+			// If the registration form is valid, use the
+			// usuarioDataService to submit the form data
+			if ($scope.formularioRegistro.$valid) {
+				
+				$scope.enProceso = true;
+	
+				var promise = usuarioDataService.registrar($scope.persona);
+				
+				promise.then(function (reponse, status) {
+					$scope.mostrarMensajeExito = true;
+					console.log(reponse.data.id);
+					
+				},function(data) {
+					
+					$scope.errorPromise = "Parece que ha habido un problema con tu petición";
+	
+					if(data.status == 404)
+						$scope.errorPromise = "Parece que no se ha encontrado el recurso solicitado";
+					
+					$scope.mostrarMensajeError = true;
+				});
+	
+				promise.finally(function () {
+					$scope.enProceso = false;
+				});
+	
+				$scope.doShow = true;
+			}
+			}
+		})
+		</script>
    <style>
-        .w3-myfont {
+        body, input, select {
+			font: normal 1em Helvetica;
+		}
+
+		input:not([type='checkbox']), select {
+			width: 350px;
+		}
+
+		input, select {
+			padding: 5px;
+			margin-top: 12px;
+		}
+
+		input[name='email'].ng-dirty.ng-invalid-email {
+			color: rgb(0, 38, 255);
+		}
+		
+		input[name='email'].ng-dirty.ng-valid-email {
+			color: green;
+		}
+		
+		form span, .error {
+			color: rgb(0, 38, 255);
+		}
+		.w3-myfont {
 		font-family: "Comic Sans MS", cursive, sans-serif;
 		}
-    </style>
-  </head>
-  <body>
+		div {
+			text-align: justify;
+			text-justify: inter-word;
+			}
+	</style>
+	<script>
+		function myFunction() {
+		  var x = document.getElementById("Demo");
+		  if (x.className.indexOf("w3-show") == -1) { 
+			x.className += " w3-show";
+		  } else {
+			x.className = x.className.replace(" w3-show", "");
+		  }
+		}
+	</script>
+  	</head>
+<body ng-app="myapp">
     <div class="w3-container w3-purple">
-        <div align="left"><img src="images/Logo.jpg" class=" w3-hover-opacity" style="width:10%"></div>
+        <div align="left"><img src="images/Logo.jpg" class=" w3-hover-opacity" style="width:7%"></div>
     </div>
     <div class="w3-bar w3-black">
-	  <a href="index.html" class="w3-bar-item w3-button w3-myfont">Inicio</a>
-	  <a href="Quienes somos.html" class="w3-bar-item w3-button w3-myfont">Quienes somos</a>
-	  <a href="Servicios.html" class="w3-bar-item w3-button w3-myfont">Servicios</a>
-	  <a href="Contactenos.html" class="w3-bar-item w3-button w3-myfont">Contactenos</a>
-    </div>
+	  <a href="index.html" class="w3-bar-item w3-button w3-myfont"> <i class="fa fa-home"></i> Inicio</a>
+	  <a href="Quienes somos.html" class="w3-bar-item w3-button w3-myfont"><i class="fa fa-paw"></i> Quienes somos</a>
+	  <a href="Servicios.html" class="w3-bar-item w3-button w3-myfont"><i class="fa fa-dog"></i> Servicios</a>
+	  <a href="Contactenos.html" class="w3-bar-item w3-button w3-myfont"><i class="fa fa-envelope-open"></i> Contactenos</a>
+	</div>
+	<div class="w3-panel w3-light-blue w3-round-large">
+		<h2 class="w3-opacity w3-center w3-myfont">Servicios</h2>
+	</div>
+	<div class="w3-row">
+		<div class="w3-col s4">
+			<div class="w3-dropdown-click w3-center">
+				<button onclick="myFunction()" class="w3-button w3-black w3-center">Menu principal</button>
+				<div id="Demo" class="w3-dropdown-content w3-bar-block w3-border w3-center">
+					<a href="#" class="w3-bar-item w3-button">Servicio 1</a>
+					<a href="#" class="w3-bar-item w3-button">Servicio 2</a>
+					<a href="#" class="w3-bar-item w3-button">Servicio 3</a>
+				</div>
+			</div>
+		</div>
+		<div class="w3-col s8">
+            <div class="w3-row w3-myfont">
+				<p>Para que puedas disfrutar tranquilo de tus viajes y compromisos. Nuestra guardería presta el servicio de Hotel Canino 5 Estrellas durante todos los días del año; nosotros nos encargaremos de ese ser especial que es parte de tu familia mientras no pueda estar contigo.
+					El Servicio de Nuestro Hotel Canino 5 Estrellas consta de:
+					Transporte Puerta a Puerta:  (NO tiene COSTO adicional en áreas de cobertura)
+					Contamos con 3 Vehículos en los que tenemos rutas de Lunes a Sábado de 6:15 a 8:15am  para recogida y de 4:00 a 6:00pm para entrega (Consultar Cobertura)
+					Habitación Interna:
+					Habitación dotada de cama y cobija (Disponemos de Sencillas, Dobles y Múltiples)
+				</p>
+			</div>
+			<div ng-controller="miControlador"></div>
+				<div class="w3-row">
+					<form name="formularioRegistro" ng-submit="validar()" novalidate>
+						<div ng-show="mostrarMensajeExito">
+							Gracias por registrarte!
+						</div>
+						
+						<div class="error" ng-show="mostrarMensajeError">				
+							{{errorPromise}}
+						</div>
+	
+						<input type="text" placeholder="Nombre" name="nombre" ng-model="persona.nombre" required/>
+						<span ng-show="nombreInvalid"><br/>Introduzca un nombre</span>
+						<br/>
+				
+						<input type="email" placeholder="Email" name="email" ng-model="persona.email" required/>
+						<span ng-show="emailInvalid"><br/>Introduzca un email válido</span>
+						<br/>
+						
+						<input type="submit" value="Registrarme"/>
+	
+						<span ng-show="enProceso" style="padding-left:10px;">
+							<p>Cargando...</p>
+						</span>
+					</form>
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="w3-container w3-purple w3-myfont">
 	  <my-app>loading</my-app>
 	  <p>Footer information goes here</p>
 	</div>
+</body>
+</html>
